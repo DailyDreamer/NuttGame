@@ -2,11 +2,14 @@ class Properties {}
 
 Properties.screenWidth = 781;
 Properties.screenHeight = 1256;
+
 Properties.rows = 3;
 Properties.columns = 3;
+
 Properties.tileWidth = 183;
 Properties.tileHeight = 183;
 Properties.tileFrame = 3;
+
 Properties.assets = {
   replay: {URL:'assets/replay.png', name:'replay'},
   background: {URL: 'assets/background.png', name: 'background'},
@@ -22,9 +25,11 @@ Properties.assets = {
   aura_1: {URL: 'assets/aura_1.png', name: 'aura_1'},
   aura_2: {URL: 'assets/aura_2.png', name: 'aura_2'},
 }
+
 Properties.boardTop = 614;
 Properties.boardLeft = 85;
 Properties.boardMid = 30;
+
 Properties.durtime = 1000; //ms
 
 export default Properties;
