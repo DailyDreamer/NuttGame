@@ -18,7 +18,7 @@ class Board {
     for (var y = 0; y < Properties.rows; y++){
       var row = [];
       for (var x = 0; x < Properties.columns; x++){
-        var tile = new Tile(this.game, this.group, x, y, this);
+        var tile = new Tile(this.game, this.group, x, y, this, `tile_${x}_${y}`);
         row.push(tile);
       }
       this.board.push(row);

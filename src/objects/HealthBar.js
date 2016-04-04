@@ -17,7 +17,7 @@ class HealthBar {
         this.bar.context.fillStyle = '#ff0';
     }
     else {
-        this.bar.context.fillStyle = '#0f0';
+        this.bar.context.fillStyle = '#ffc32e';
     }
     this.bar.context.fillRect(0, 0, this.width, (this.currentValue / this.maxValue) * this.height);
     // important - without this line, the context will never be updated on the GPU when using webGL
@@ -34,7 +34,7 @@ class HealthBar {
 
   init() {
     this.currentValue = this.maxValue;
-    this.game.add.tween(this).to({currentValue: 0}, 5000, null, true, 0, 0);
+//    this.game.add.tween(this).to({currentValue: 0}, 5000, null, true, 0, 0);
   }
 }
 

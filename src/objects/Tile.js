@@ -1,12 +1,12 @@
 import Properties from 'Properties';
 
 class Tile{
-  constructor(game, group, column, row, board) {
+  constructor(game, group, column, row, board, assetsname) {
     this.game = game;
-    this.x = column * Properties.assets.tiles.width;
-    this.y = row * Properties.assets.tiles.height;
+    this.x = column * Properties.tileWidth + column * Properties.boardMid;
+    this.y = row * Properties.tileHeight + row * Properties.boardMid;
     this.board = board;
-    this.sprite = game.add.sprite(this.x, this.y, Properties.assets.tiles.name, 0, group);
+    this.sprite = game.add.sprite(this.x, this.y, assetsname, 0, group);
     this.target = false;
     this.touched = false;
     this.sprite.inputEnabled = false;
@@ -21,7 +21,7 @@ class Tile{
   set isTarget(target) {
     if (target){
       this.sprite.inputEnabled = true;
-      this.sprite.animations.frame = 7;
+      this.sprite.animations.frame = 1;
     }else{
       this.sprite.inputEnabled = false;
       this.sprite.animations.frame = 0;
@@ -45,12 +45,13 @@ class Tile{
     this.sprite.anchor.setTo(0.0, 0.0);
     this.game.add.tween(this.sprite).to({angle: 360}, 500, Phaser.Easing.Exponential.easeOut).start();
 
+    this.sprite.animations.frame = 2;
     this.isTouched = true;
     this.board.getPoints();
   }
 
   inputUp() {
-
+    this.sprite.animations.frame = 1;
   }
 }
 

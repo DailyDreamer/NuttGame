@@ -24,3 +24,11 @@ minified using UglifyJS.
 Any modification to the files inside the `./src` and `./static` folder will trigger a full page reload.
 
 If you modify the contents of other files, please manually restart the server.
+
+## Notice
+
+if you have the error `watch ENOSPC`, it's caused by the linux kernel inotify watch limit reached, run the command below and have fun~
+
+```bash
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
