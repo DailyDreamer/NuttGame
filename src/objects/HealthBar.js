@@ -6,7 +6,6 @@ class HealthBar {
     this.height = height;
     this.bar = new Phaser.BitmapData(this.game, 'healthBar', this.width, this.height);
     this.game.add.sprite(xPos, yPos, this.bar);
-    this.init();
   }
   updateBar() {
     this.bar.context.clearRect(0, 0, this.width, this.height);

@@ -1,8 +1,10 @@
 import Properties from 'Properties';
 
-class Tile{
+class Tile {
   constructor(game, group, column, row, board, assetsname) {
     this.game = game;
+    this.column = column;
+    this.row = row;
     this.x = column * Properties.tileWidth + column * Properties.boardMid;
     this.y = row * Properties.tileHeight + row * Properties.boardMid;
     this.board = board;
@@ -47,7 +49,7 @@ class Tile{
 
     this.sprite.animations.frame = 2;
     this.isTouched = true;
-    this.board.getPoints();
+    this.board.getPoints(this.row * Properties.rows + this.column);
   }
 
   inputUp() {

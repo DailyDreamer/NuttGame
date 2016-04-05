@@ -25,8 +25,6 @@ class Board {
     }
 
     this.touchTimer = this.game.time.events.loop(Properties.durtime, this.cleanTouched, this).timer;
-
-    this.init();
   }
 
   cleanTouched() {
@@ -58,7 +56,8 @@ class Board {
     }
   }
 
-  getPoints() {
+  getPoints(act) {
+    this.gameState.humanAct(act);
     var canGetPoint = true;
     for (var tile of this.targets){
       if (!tile.touched){

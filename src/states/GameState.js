@@ -1,5 +1,6 @@
 import Board from 'objects/Board';
 import HealthBar from 'objects/HealthBar'
+import Human from 'objects/Human'
 import GameOver from 'objects/GameOver'
 import Properties from 'Properties';
 
@@ -30,48 +31,13 @@ class GameState extends Phaser.State {
 		var scoreText = new Phaser.Text(this.game, 90, 32, 'Point: 0', { font: '40px Arial', fill: 'white'});
 		this.game.stage.addChild(scoreText);
 
-		this.group = this.game.add.group();
-		this.group.x = -30;
-		this.group.y = 0;
-
-		this.head_1 = this.game.add.sprite(346, 60, Properties.assets.head_1.name, 0, this.group);
-		this.head_1.visible = false;
-		this.head_2 = this.game.add.sprite(346, 60, Properties.assets.head_2.name, 0, this.group);
-
-		this.arm_1_left = this.game.add.sprite(380, 230, Properties.assets.arm_1.name, 0, this.group);
-		this.arm_1_left.anchor.setTo(0.51, 0.12);
-		this.arm_1_left.angle = 60;
-		this.arm_1_left.visible = false;
-
-		this.arm_1_right = this.game.add.sprite(430, 230, Properties.assets.arm_1.name, 0, this.group);
-		this.arm_1_right.anchor.setTo(0.51, 0.12);
-		this.arm_1_right.angle = -60;
-		this.arm_1_right.visible = false;
-
-		this.arm_2_left = this.game.add.sprite(290, 137, Properties.assets.arm_2_left.name, 0, this.group);
-		this.arm_2_right = this.game.add.sprite(430, 137, Properties.assets.arm_2_right.name, 0, this.group);
-
-		this.leg_1_left = this.game.add.sprite(355, 329, Properties.assets.leg_1.name, 0, this.group);
-		this.leg_1_left.visible = false;
-		this.leg_1_right = this.game.add.sprite(420, 329, Properties.assets.leg_1.name, 0, this.group);
-		this.leg_1_right.visible = false;
-
-		this.leg_2_left = this.game.add.sprite(375, 344, Properties.assets.leg_2_left.name, 0, this.group);
-		this.leg_2_left.anchor.setTo(0.78, 0.07);
-
-		this.leg_2_right = this.game.add.sprite(435, 344, Properties.assets.leg_2_right.name, 0, this.group);
-		this.leg_2_right.anchor.setTo(0.11, 0.07);
-
-		this.body = this.game.add.sprite(346, 210, Properties.assets.body.name, 0, this.group);
-
-
-		this.aura_1 = this.game.add.sprite(250, 455, Properties.assets.aura_1.name);
-//		this.aura_2 = this.game.add.sprite(250, 245, Properties.assets.aura_2.name);
+		this.human = new Human(this.game);
 
 		this.board = new Board(this.game, scoreText, Properties.boardLeft, Properties.boardTop, this);
 
 		this.gameOver = new GameOver(this.game, this);
 
+		this.restartGame();
 	}
 
 	update() {
@@ -86,6 +52,32 @@ class GameState extends Phaser.State {
 		this.board.init();
 		this.healthBar.init();
 		this.wealthBar.init();
+		this.human.init();
+	}
+
+	humanAct(act) {
+		switch (act) {
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				break;
+			case 8:
+				break;
+			case 9:
+				break;
+			default:
+
+		}
 	}
 
 }
