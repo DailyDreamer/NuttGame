@@ -5,6 +5,7 @@ class Tile {
     this.game = game;
     this.column = column;
     this.row = row;
+    this.act = this.row * Properties.rows + this.column;
     this.x = column * Properties.tileWidth + column * Properties.boardMid;
     this.y = row * Properties.tileHeight + row * Properties.boardMid;
     this.board = board;
@@ -49,7 +50,9 @@ class Tile {
 
     this.sprite.animations.frame = 2;
     this.isTouched = true;
-    this.board.getPoints(this.row * Properties.rows + this.column);
+
+    this.board.getPoints(this.act)
+    this.board.gameState.humanAct(this.act);
   }
 
   inputUp() {

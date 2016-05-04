@@ -20,7 +20,7 @@ class GameState extends Phaser.State {
 	}
 
 	create() {
-		this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+		this.game.scale.scaleMode = this.game.device.desktop ? Phaser.ScaleManager.SHOW_ALL : Phaser.ScaleManager.EXACT_FIT;
 
 		this.wealthBar = new HealthBar(this.game, 100, 36, 112, 40, 338);
 		this.healthBar = new HealthBar(this.game, 100, 708, 112, 40, 338);
@@ -56,27 +56,46 @@ class GameState extends Phaser.State {
 	}
 
 	humanAct(act) {
+		let time = 500;
 		switch (act) {
+			case 0:
+				this.human.arm_left_high();
+				this.game.time.events.add(time, this.human.arm_left_init, this.human);
+				break;
 			case 1:
+				this.human.head_high();
+				this.game.time.events.add(time, this.human.head_init, this.human);
 				break;
 			case 2:
+				this.human.arm_right_high();
+				this.game.time.events.add(time, this.human.arm_right_init, this.human);
 				break;
 			case 3:
+				this.human.arm_left_mid();
+				this.game.time.events.add(time, this.human.arm_left_init, this.human);
 				break;
 			case 4:
+				this.human.body_high();
+				this.game.time.events.add(time, this.human.body_init, this.human);
 				break;
 			case 5:
+				this.human.arm_right_mid();
+				this.game.time.events.add(time, this.human.arm_right_init, this.human);
 				break;
 			case 6:
+				this.human.leg_left_high();
+				this.game.time.events.add(time, this.human.leg_left_init, this.human);
 				break;
 			case 7:
+				this.human.aura_high();
+				this.game.time.events.add(time, this.human.aura_init, this.human);
 				break;
 			case 8:
-				break;
-			case 9:
+				this.human.leg_right_high();
+				this.game.time.events.add(time, this.human.leg_right_init, this.human);
 				break;
 			default:
-
+				console.log('no such action!');
 		}
 	}
 

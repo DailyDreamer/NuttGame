@@ -24,14 +24,7 @@ class Board {
       this.board.push(row);
     }
 
-    this.touchTimer = this.game.time.events.loop(Properties.durtime, this.cleanTouched, this).timer;
-  }
-
-  cleanTouched() {
-    console.log("clear touched");
-    for (var tile of this.targets){
-      tile.isTouched = false;
-    }
+//    this.touchTimer = this.game.time.events.loop(Properties.durtime, this.setTargets, this).timer;
   }
 
   getRandomTile() {
@@ -57,10 +50,9 @@ class Board {
   }
 
   getPoints(act) {
-    this.gameState.humanAct(act);
     var canGetPoint = true;
     for (var tile of this.targets){
-      if (!tile.touched){
+      if (!tile.isTouched) {
         canGetPoint = false;
       }
     }
@@ -72,7 +64,7 @@ class Board {
   }
 
   init() {
-    this.touchTimer.start();
+  //  this.touchTimer.start();
     this.point = 0;
     this.targetNum = 2;
     this.setTargets();
@@ -85,7 +77,6 @@ class Board {
   set point(point) {
     this.currentPoint = point;
     this.scoreText.text = "Point: " + this.currentPoint.toString();
-    console.log(this.currentPoint);
   }
 }
 

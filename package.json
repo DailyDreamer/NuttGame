@@ -4,8 +4,8 @@
   "description": "A small fun game for nutt",
   "main": "src/index.js",
   "scripts": {
-    "start": "gulp",
-    "production": "gulp --production"
+    "dev": "gulp",
+    "build": "gulp --production"
   },
   "author": "Li Xincheng",
   "license": "MIT",
